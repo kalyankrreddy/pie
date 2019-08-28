@@ -10,11 +10,7 @@ node {
 		export PATH=$PATH:$MAVEN_HOME/bin
 		mvn --version
 		mvn clean package
+		mvn clean install
 		"""
     }
-
-    stage('Build'){
-        sh "mvn clean install"
-    }
-
 }
