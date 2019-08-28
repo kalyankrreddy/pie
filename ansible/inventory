@@ -1,0 +1,2 @@
+[host]
+192.168.85.223  ansible_ssh_user=pawan ansible_ssh_pass=pawan ansible_sudo_pass=pawan
