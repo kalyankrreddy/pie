@@ -1,13 +1,23 @@
-node {
+//node {
 
-    stage('Checkout') {
+    //stage('Checkout') {
+    //    checkout scm
+  //  }
+
+node {
+	stage('Checkout') {
         checkout scm
     }
-
-    def mvn_version = 'M2'
-withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
-   sh "mvn clean package"
-}
+    withMaven(mavenSettingsConfig: 'maven-settings-for-game-of-life', mavenInstallation: 'M3', jdk: 'Oracle JDK 8') {
+      //  git 'https://github.com/cyrille-leclerc/my-spring-boot-app.git'
+        sh "mvn clean package deploy"
+    }
+}	
+	
+//    def mvn_version = 'M2'
+//withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
+//   sh "mvn clean package"
+// }
 	
 //    stage('pre-install') {
 //       sh """
@@ -19,4 +29,4 @@ withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
 //		mvn clean install
 //		"""
 //   }
-}
+//}
