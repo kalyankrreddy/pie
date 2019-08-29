@@ -10,8 +10,8 @@ node {
 		def mvnHome = tool name: 'maven3', type: 'maven'
 		//sh "${mvnHome}/bin/mvn package"
 		sh """
-			${mvnHome}/bin/mvn --version 
-			mvn clean install
+			${mvnHome}/bin/mvn --version
+			${mvnHome}/bin/mvn clean install
 			"""
 		
     }
