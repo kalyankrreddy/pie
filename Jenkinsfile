@@ -4,7 +4,7 @@ node {
         checkout scm
     }
 
-    def mvn_version = 'M3'
+    def mvn_version = 'M2'
 withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
    sh "mvn clean package"
 }
