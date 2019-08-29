@@ -8,10 +8,11 @@ node {
     stage('Compile-Package') {
        
 		def mvnHome = tool name: 'maven3', type: 'maven'
-		sh "${mvnHome}/bin/mvn package"
-		//mvn --version
-		//mvn clean package
-		//mvn clean install
-		//
+		//sh "${mvnHome}/bin/mvn package"
+		sh """
+			${mvnHome}/bin/mvn --version 
+			mvn clean install
+			"""
+		
     }
 }
